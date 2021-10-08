@@ -7,7 +7,8 @@ defmodule ServebcgameWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_servebcgame_key",
-    signing_salt: "+Z9jcGMk"
+    signing_salt: "+Z9jcGMk",
+    same_site: "Strict"
   ]
 
   socket "/socket", ServebcgameWeb.UserSocket,

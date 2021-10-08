@@ -7,6 +7,11 @@ defmodule ServebcgameWeb.RoomChannel do
     {:ok, assign(socket, :name, name)}
   end
 
+  def join("room:lobby", %{}, socket) do
+    send(self(), :after_join)
+    {:ok, assign(socket, :name, "anonymous")}
+  end
+
   def join("room:" <> _private_room_id, _params, _socket) do
     {:error, %{reason: "unauthorized"}}
   end
